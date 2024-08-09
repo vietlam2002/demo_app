@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Thư viện</h1>
+        <ul>
+            {% for file in files %}
+            <li>
+                <strong>{{ file[1] }}</strong> - Uploaded by User ID: {{ file[2] }}
+                <a href="{{ url_for('download_file', file_id=file[0]) }}">Mở và xem (-10 coins)</a>
+            </li>
+            {% endfor %}
+        </ul>
+        <a href="{{ url_for('index') }}" class="back-link">Back to Dashboard</a>
+    </div>
+</body>
+</html>
